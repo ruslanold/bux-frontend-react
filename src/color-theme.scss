@@ -1,0 +1,56 @@
+@import "./variables.scss";
+
+//shortcuts
+$primary: 'primary';
+$secondary: 'secondary';
+$bg: 'bg';
+$surface: 'surface';
+$on-bg: 'on-bg';
+$on-primary: 'on-primary';
+$on-secondary: 'on-secondary';
+$on-surface: 'on-surface';
+$on-primary: 'on-primary';
+$on-secondary: 'on-secondary';
+
+
+//themes
+$themes: (
+        default: (
+          primary: $theme-primary,
+          secondary: $theme-secondary,
+          bg: $theme-background,
+          surface: $theme-surface,
+          on-primary: $theme-on-primary,
+          on-secondary: $theme-on-secondary,
+          on-bg: $theme-on-background,
+          on-surface: $theme-on-surface,
+        ),
+        dark: (
+          primary: $theme-primary-light,
+          secondary: $theme-secondary-light,
+          bg: $theme-background-dark,
+          surface: $theme-surface-dark,
+          on-primary: $theme-on-primary-light,
+          on-secondary: $theme-on-secondary-light,
+          on-bg: $theme-on-background-dark,
+          on-surface: $theme-on-surface-dark
+        ),
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

@@ -1,0 +1,56 @@
+@import "../../variables.scss";
+@import "../../color-theme.scss";
+
+.data {
+
+  &__nav {
+    @include themed(){
+      background-color: t($surface);
+    }
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: $spacer 0;
+  }
+
+  &__nav-item {
+    margin-right: $spacer;
+  }
+  &__nav-item--info {
+    background-color: $theme-info;
+    color: $theme-on-info;
+    padding:  6px 16px;
+  }
+
+  &__nav-item--error {
+    background-color: $theme-error;
+    color: $theme-on-error;
+    padding:  6px 16px;
+
+  }
+
+  &__nav-item--warning {
+    background-color: $theme-warning;
+    color: $theme-on-warning;
+    padding:  6px 16px;
+  }
+
+  &__nav-item--success {
+    background-color: $theme-success;
+    color: $theme-on-success;
+    padding:  6px 16px;
+  }
+
+  &__user {
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 45px;
+    height: 45px;
+  }
+  &__user-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}

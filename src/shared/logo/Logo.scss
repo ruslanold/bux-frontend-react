@@ -1,0 +1,19 @@
+@import "../../variables.scss";
+
+.logo {
+  text-align: center;
+  padding: $spacer;
+  min-width: 300px;
+  min-height: $header-min-height;
+  background-color: $theme-sidebar-light;
+  position: fixed;
+  top: 0;
+  left: 0;
+  &__img {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 20px;
+    top: 6px;
+  }
+}

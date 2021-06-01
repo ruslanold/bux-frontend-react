@@ -1,0 +1,15 @@
+@import "../../variables.scss";
+@import "../../color-theme.scss";
+
+.footer {
+  @include themed() {
+    background-color: t($surface);
+    color: t($on-surface);
+  };
+
+  &__container{
+    width: 100%;
+    padding: 0 $spacer;
+  }
+
+}

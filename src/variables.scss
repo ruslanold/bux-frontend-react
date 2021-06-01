@@ -1,0 +1,51 @@
+$theme-primary-light: #63a4ff;//#5a5d80;
+$theme-primary: #1976d2;//#434763; //#2f3453
+$theme-primary-dark: #004ba0;//#070d2a;
+
+$theme-secondary-light: #62eecd; //#4cac9b;
+$theme-secondary: #1abb9c; //#0a7c6d;
+$theme-secondary-dark: #008a6e; //#004f42;
+
+
+$theme-sidebar-light: #556a81;//#5a5d80;
+$theme-sidebar: #2a3f54;//#434763; //#2f3453
+$theme-sidebar-dark: #00192b;//#070d2a;
+
+$theme-background: #e0e0e0;
+$theme-background-dark: $theme-sidebar;//#424547; 
+
+$theme-surface: #eee;
+$theme-surface-dark: $theme-sidebar-light;//#4c5053;
+
+$theme-error-light: #e57373;
+$theme-error: #f44336;
+$theme-error-dark: #d32f2f;
+
+$theme-warning-light: #ffb74d;
+$theme-warning: #ff9800;
+$theme-warning-dark: #f57c00;
+
+$theme-info-light: #64b5f6;
+$theme-info: #2196f3;
+$theme-info-dark: #1976d2;
+
+$theme-success-light: #81c784; 
+$theme-success: #4caf50;
+$theme-success-dark: #388e3c;
+
+$theme-on-primary: #fff;
+$theme-on-primary-light: #000000;
+$theme-on-secondary: #fff;
+$theme-on-secondary-light: #000000;
+$theme-on-sidebar: #fff;
+$theme-on-background: #000;
+$theme-on-background-dark: #fff;
+$theme-on-surface: #000;
+$theme-on-surface-dark: #fff;
+$theme-on-error: #fff;
+$theme-on-warning: #fff;
+$theme-on-info: #fff;
+$theme-on-success: #fff;
+
+$spacer: 14px;
+$header-min-height: 60px;

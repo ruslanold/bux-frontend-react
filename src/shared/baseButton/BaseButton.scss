@@ -1,0 +1,346 @@
+@import "../../variables.scss";
+@import "../../color-theme.scss";
+
+$box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+$box-shadow-hover: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+  0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+.button-base {
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  user-select: none;
+  vertical-align: middle;
+  -moz-appearance: none;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+  //color: rgba($theme-on-background, 0.54);
+  @include themed() {
+    &:hover {
+      background-color: rgba(t($on-bg), 0.12);
+    }
+
+    &:disabled {
+      cursor: default;
+      pointer-events: none;
+      color: rgba(t($on-bg), 0.26);
+    }
+
+    &--primary {
+      color: t($primary);
+    }
+    &--primary:hover {
+      background-color: rgba(t($primary), 0.12);
+    }
+    &--secondary {
+      color: t($secondary);
+    }
+    &--secondary:hover {
+      background-color: rgba(t($secondary), 0.12);
+    }
+
+    &-contained {
+      background-color: #e0e0e0;
+      color: rgba(0, 0, 0, 0.8);
+      box-shadow: $box-shadow;
+    }
+    &-contained:hover {
+      background-color: darken(#e0e0e0, 5%);
+      box-shadow: $box-shadow-hover;
+    }
+    &-contained:disabled {
+      background-color: rgba(t($on-bg), 0.12);
+      // color: rgba(t($on-bg), 0.26);
+      box-shadow: none;
+    }
+    &-contained--primary {
+      background-color: t($primary);
+      color: rgba(t($on-primary), 0.8);
+      box-shadow: $box-shadow;
+    }
+    &-contained--primary:hover {
+      background-color: darken(t($primary), 5%);
+      box-shadow: $box-shadow-hover;
+    }
+    &-contained--secondary {
+      background-color: t($secondary);
+      color: rgba(t($on-secondary), 0.8);
+      box-shadow: $box-shadow;
+    }
+    &-contained--secondary:hover {
+      background-color: darken(t($secondary), 5%);
+      box-shadow: $box-shadow-hover;
+    }
+
+    &-outlined {
+      border: 1px solid rgba(t($on-bg), 0.26);
+      color: t($on-bg);
+    }
+
+    &-outlined:hover {
+      border-color: t($on-bg);
+      color: t($on-bg);
+      background-color: rgba(t($bg), 0.12);
+      // }
+    }
+
+    &-outlined:disabled {
+      border-color: rgba(t($on-bg), 0.26);
+      // color: rgba(t($on-bg), 0.26);
+    }
+
+    &-outlined--primary {
+      border: 1px solid rgba(t($primary), 0.26);
+      color: t($primary);
+    }
+    &-outlined--primary:hover {
+      border-color: t($primary);
+      background-color: rgba(t($primary), 0.12);
+    }
+    &-outlined--secondary {
+      border: 1px solid rgba(t($secondary), 0.26);
+      color: t($secondary);
+    }
+    &-outlined--secondary:hover {
+      border-color: t($secondary);
+      background-color: rgba(t($secondary), 0.12);
+    }
+
+    &__root {
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      position: absolute;
+      border-radius: inherit;
+      z-index: 1;
+      //pointer-events: none;
+    }
+    &__pulse {
+      position: absolute;
+      transform: scale(0);
+      animation: pulse 0.5s ease-out;
+      animation-fill-mode: both;
+      transition: opacity 0.5s;
+      border-radius: 50%;
+
+      background-color: rgba(t($on-bg), 0.26);
+    }
+
+    &__pulse--primary {
+      background-color: rgba(t($primary), 0.32);
+    }
+
+    &__pulse--secondary {
+      background-color: rgba(t($secondary), 0.32);
+    }
+
+    &__pulse-contained {
+      background-color: rgba(0, 0, 0, 0.32);
+    }
+
+    &__pulse-contained--primary {
+      background-color: rgba(t($on-primary), 0.32);
+    }
+
+    &__pulse-contained--secondary {
+      background-color: rgba(t($on-secondary), 0.32);
+    }
+
+    &__pulse-outlined {
+      background-color: rgba(t($on-bg), 0.32);
+    }
+
+    &__pulse-outlined--primary {
+      background-color: rgba(t($primary), 0.32);
+    }
+
+    &__pulse-outlined--secondary {
+      background-color: rgba(t($secondary), 0.32);
+    }
+  }
+    @keyframes pulse {
+      0% {
+        transform: scale(0);
+      }
+      25% {
+        transform: scale(0.6);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      75% {
+        transform: scale(1.8);
+      }
+      100% {
+        transform: scale(2.4);
+      }
+    }
+  
+}
+// &:hover {
+//   background-color: rgba($theme-background, 0.5);
+// }
+
+// &:disabled {
+//   cursor: default;
+//   pointer-events: none;
+//   color: rgba($theme-on-background, 0.26);
+// }
+
+// &--primary {
+//   color: $theme-primary-dark;
+// }
+
+// &--primary:hover {
+//   background-color: rgba($theme-primary-light, 0.12);
+// }
+// &--secondary {
+//   color: $theme-secondary-dark;
+// }
+// &--secondary:hover {
+//   background-color: rgba($theme-secondary-light, 0.12);
+// }
+
+// &-contained {
+//   background-color: $theme-background;
+//   color: $theme-on-background;
+// }
+// &-contained:hover {
+//   background-color: rgba($theme-background-dark, 0.5);
+// }
+// &-contained:disabled {
+//   color: rgba($theme-on-background, 0.26);
+//   box-shadow: none;
+//   background-color: rgba($theme-on-background, 0.12);
+// }
+// &-contained--primary {
+//   background-color: $theme-primary;
+//   color: $theme-on-primary;
+// }
+// &-contained--primary:hover {
+//   background-color: $theme-primary-dark;
+// }
+// &-contained--secondary {
+//   background-color: $theme-secondary;
+//   color: $theme-on-secondary;
+// }
+// &-contained--secondary:hover {
+//   background-color: $theme-secondary-dark;
+// }
+
+// &-outlined {
+//   border: 1px solid rgba($theme-background-dark, 0.5);
+//   color: $theme-on-background;
+// }
+
+// &-outlined:hover {
+//   border-color: $theme-background-dark;
+//   background-color: $theme-background;
+// }
+
+// &-outlined:disabled {
+//   color: rgba($theme-on-background, 0.26);
+//   border-color: rgba($theme-on-background, 0.12);
+// }
+
+// &-outlined--primary {
+//   border: 1px solid $theme-primary-light;
+//   color: $theme-primary-dark;
+// }
+// &-outlined--primary:hover {
+//   border-color: $theme-primary-dark;
+//   background-color: rgba($theme-primary-light, 0.12);
+// }
+// &-outlined--secondary {
+//   border: 1px solid $theme-secondary-light;
+//   color: $theme-secondary-dark;
+// }
+// &-outlined--secondary:hover {
+//   border-color: $theme-secondary-dark;
+//   background-color: rgba($theme-secondary-light, 0.12);
+// }
+
+// &__root {
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   overflow: hidden;
+//   position: absolute;
+//   border-radius: inherit;
+//   z-index: 0;
+//   //pointer-events: none;
+// }
+// &__pulse {
+//   position: absolute;
+//   transform: scale(0);
+//   animation: pulse 0.5s ease-out;
+//   animation-fill-mode: both;
+//   transition: opacity 0.5s;
+//   border-radius: 50%;
+//   background-color: $theme-background-dark;
+// }
+
+// &__pulse--primary {
+//   background-color: rgba($theme-primary-light, 0.32);
+// }
+
+// &__pulse--secondary {
+//   background-color: rgba($theme-secondary-light, 0.32);
+// }
+
+// &__pulse-contained {
+//   background-color: $theme-background-dark;
+// }
+
+// &__pulse-contained--primary {
+//   background-color: $theme-primary-light;
+// }
+
+// &__pulse-contained--secondary {
+//   background-color: $theme-secondary-light;
+// }
+
+// &__pulse-outlined {
+//   background-color: $theme-background-dark;
+// }
+
+// &__pulse-outlined--primary {
+//   background-color: rgba($theme-primary-light, 0.32);
+// }
+
+// &__pulse-outlined--secondary {
+//   background-color: rgba($theme-secondary-light, 0.32);
+// }
+
+// @keyframes pulse {
+//   0% {
+//     transform: scale(0);
+//   }
+//   25% {
+//     transform: scale(0.6);
+//   }
+//   50% {
+//     transform: scale(1.2);
+//   }
+//   75% {
+//     transform: scale(1.8);
+//   }
+//   100% {
+//     transform: scale(2.4);
+//   }
+// }

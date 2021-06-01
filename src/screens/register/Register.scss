@@ -1,0 +1,76 @@
+@import "../../variables.scss";
+@import "../../color-theme.scss";
+
+.register {
+  text-align: center;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding: $spacer $spacer * 2;
+  }
+
+  &__item-wrrap {
+    display: flex;
+    margin-bottom: $spacer;
+    align-items: stretch;
+
+    @include themed() {
+      border-bottom: 1px solid rgba(t($on-bg), 0.26);
+
+      &--valid {
+        border-color: $theme-success;
+      }
+  
+      &--invalid {
+        border-color: $theme-error;
+      }
+
+    }
+  }
+
+  &__icon {
+    @include themed() {
+      color: rgba(t($on-bg), 0.26);
+    }
+  }
+
+  &__item {
+    padding: 0.375rem 0.75rem;
+    border: 0;
+    background: transparent;
+    flex: 1 1 auto;
+  }
+
+  &__link {
+    @include themed() {
+      color: t($secondary);
+    }
+  }
+
+  &__checkbox {
+    
+  }
+
+  &__agreement{
+    display: flex;
+    margin-bottom: 14px;
+  }
+
+  &__agreement-text{
+    margin-left: 14px;
+    text-align: left;
+  }
+
+
+  &__bottom {
+    @include themed() {
+      border-top: 1px solid rgba(t($on-bg), 0.12);
+    }
+    padding: $spacer $spacer * 2;
+  }
+
+  .error-alert{
+    margin-top: $spacer;
+    color: $theme-error;
+  }
+}

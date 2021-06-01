@@ -1,0 +1,15 @@
+@import "../../variables.scss";
+@import "../../color-theme.scss";
+
+.modal-logo{
+  text-align: center;
+  padding: $spacer * 2 $spacer * 2 0;
+
+  &__img{
+
+  }
+
+  &__sitename{
+    margin-top: $spacer;
+  }
+}
