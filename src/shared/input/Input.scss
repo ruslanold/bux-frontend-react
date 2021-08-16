@@ -1,0 +1,58 @@
+@import "../../variables.scss";
+@import "../../color-theme.scss";
+
+.input {
+
+  &__inner {
+    margin-bottom: $spacer * 2;
+    display: flex;
+    align-items: center;
+    @include themed() {
+      border-bottom: 1px solid rgba(t($on-bg), 0.26);
+    }
+  }
+
+  &__inner:focus-within {
+    border-bottom: 1px solid $theme-secondary;
+  }
+
+  &__inner:focus-within &__icon {
+    color: $theme-secondary;  
+  }
+
+  &__error {
+    margin: -($spacer * 2 + 2) 0px $spacer;
+    color: $theme-on-error;
+    border: 1px solid $theme-error;
+    background: $theme-error-dark;
+    padding: $spacer / 2;
+    border-radius: 0 0 3px 3px;
+  }
+
+  &__icon {
+    @include themed() {
+      color: rgba(t($on-bg), 0.26);
+    }
+  }
+
+  &__item {
+    padding: .375rem .75rem;
+    border: 0;
+    background: transparent;
+    width: 100%;
+    @include themed() {
+      color: t($on-bg);
+    }
+  }
+
+  &__item::placeholder{
+    @include themed() {
+      color: rgba(t($on-bg), 0.67);
+    }
+  }
+
+
+
+
+
+}

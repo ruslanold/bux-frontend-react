@@ -1,9 +1,11 @@
 import { Route, Switch } from "react-router";
-import {shallowEqual, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import { Account, Main } from "./layouts";
 
-import PrivateRoute from "./utils/PrivateRoute";
+import PrivateRoute from "./helpers/PrivateRoute";
+
+import { AlertContainer } from "./shared/alertContainer/AlertContainer"
 
 import "./App.scss";
 
@@ -17,6 +19,7 @@ function App() {
         <PrivateRoute isAuth={isAuth} isLoading={isLoading} path="/account" component={Account} />
         <Route isAuth={isAuth} component={Main} />
       </Switch>
+      <AlertContainer/>
     </div>
   );
 }

@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
-import { Notifications } from "@material-ui/icons";
-import Button from "../button/Button";
+import { Button } from "../button/Button";
+import Logo from "../logo/Logo";
 import IconButton from "../iconButton/IconButton";
 
 import { changeTheme } from "../../actions/themeActions"
@@ -19,20 +19,12 @@ const Header = () => {
   console.log(location.pathname);
   return (
     <div className="header">
-      <div className="header__container">
-        Header
+      <div className="header__container container">
+      <Logo />
         <ul className="header__nav">
-
           {user ? (
 
             <>
-              <IconButton
-                variant="contained"
-                color="secondary"
-                onClick={() => dispatch(changeTheme())}
-              >
-                <span className="material-icons md-18">{ darkTheme ? "brightness_7" : "brightness_4"}</span>
-              </IconButton>
               {user && location.pathname === "/" &&
                 <Link to="/account">
                   <Button variant="contained" color="primary">
@@ -42,10 +34,17 @@ const Header = () => {
               }
               <li className="header__nav-item">
                 <IconButton
-                  variant="contained"
-                  color="secondary"
+                  onClick={() => dispatch(changeTheme())}
                 >
-                  <Notifications />
+                  <span className="material-icons md-24">{ darkTheme ? "brightness_7" : "brightness_4"}</span>
+                </IconButton>
+              </li>
+
+
+              <li className="header__nav-item">
+                <IconButton
+                >
+                  <span className="material-icons md-24">{ "notifications"}</span>
                 </IconButton>
               </li>
               <li className="header__nav-item">
@@ -73,6 +72,7 @@ const Header = () => {
           )}
         </ul>
       </div>
+
     </div>
   );
 };

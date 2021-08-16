@@ -9,7 +9,6 @@ class AuthService{
   }
 
   registration(user) {
-    console.log("AuthService");
     return axiosInstance.post(this.url, user);
   }
 
@@ -23,6 +22,17 @@ class AuthService{
   logout() {
     return axiosInstance.post(`${this.url}/logout`);
   }
+
+  forgotPassword(email){
+    return axiosInstance.post(`${this.url}/reset/password`, { 
+      email 
+    });
+  }
+
+  checkIsValidPasswordResetToken(code) {
+    return axiosInstance.get(`${this.url}/reset/password?code=${code}`);
+  }
+
 }
 
 export const authService = new AuthService();

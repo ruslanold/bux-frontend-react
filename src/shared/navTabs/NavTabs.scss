@@ -1,0 +1,26 @@
+@import "../../variables.scss";
+
+.nav-tabs {
+
+  &__list {
+    display: flex;
+    align-items: center;
+    margin: $spacer 0;
+    border-bottom: 1px solid #000;
+  }
+
+  &__item {
+  }
+
+  &__item a:first-child {
+    padding: $spacer;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__item .active{
+    border: 1px solid #000;
+    border-bottom-color: inherit;
+  }
+
+}

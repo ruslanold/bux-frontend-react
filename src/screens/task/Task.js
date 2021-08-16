@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Task.scss";
 
-const Task = () => {
+export const Task = () => {
 
 
   return (
@@ -12,5 +12,3 @@ const Task = () => {
   );
 
 }
-
-export default Task;

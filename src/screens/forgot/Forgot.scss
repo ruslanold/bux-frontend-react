@@ -1,0 +1,13 @@
+@import "../../variables.scss";
+@import "../../color-theme.scss";
+
+.forgot {
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    padding: $spacer * 2;
+  }
+
+
+}

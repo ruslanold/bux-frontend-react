@@ -10,3 +10,14 @@ export const addAuthorizationHeader = () => {
     axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
   }
 }
+
+axiosInstance.interceptors.response.use(function (response) {
+  return response;
+}, function (error) {
+
+  if (!error.response) {
+    return Promise.reject(error);
+  }
+  return Promise.reject(error.response.data);
+});
+

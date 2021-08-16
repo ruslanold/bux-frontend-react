@@ -3,10 +3,10 @@ import "./Data.scss";
 
 import { Notifications } from "@material-ui/icons";
 
-import Button from "../../shared/button/Button";
+import { Button } from "../../shared/button/Button";
 import IconButton from "../../shared/iconButton/IconButton";
 
-const Data = () => {
+export const Data = () => {
   return (
     <div className="data">
       Data
@@ -172,4 +172,3 @@ const Data = () => {
     </div>
   );
 };
-export default Data;

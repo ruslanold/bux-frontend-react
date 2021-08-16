@@ -3,43 +3,37 @@
 
 .account-layout {
   text-align: center;
-  display: flex;
   min-height: 100vh;
 
-  .logo{
-    text-align: center;
-    padding: $spacer;
-    min-width: 300px;
-    min-height: $header-min-height;
-    background-color: $theme-sidebar-light;
-    position: fixed;
-    top: 0;
-    left: 0;
-    &__img {
-      width: 25px;
-      height: 25px;
-      position: absolute;
-      left: 20px;
-      top: 6px;
-    }
+  &__container {
+    display: flex;
   }
 
   &__sidebar {
-    min-width: 300px;
+    min-width: 245px;
+    min-height: calc(100vh - #{$header-min-height});
+    // position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
     background-color: $theme-sidebar;
-    margin-top: $header-min-height;
     color: $theme-on-sidebar;
   }
 
+  &__header{
+    position: static;
+  }
+
   &__content {
+    // padding-left: $sidebar-width;
     display: flex;
     flex-direction: column;
     width: 100%;
   }
 
-  &__content-wrap {
+  &__page {
     flex: 1 0 auto;
-    padding: 1rem;
+    padding: $spacer;
     @include themed() {
       background-color: t($bg);
       color: t($on-bg);
@@ -49,4 +43,5 @@
   .footer {
     flex: 0 0 auto;
   }
+  
 }

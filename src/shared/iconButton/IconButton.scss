@@ -14,9 +14,7 @@ $padding-medium: 12px;
 
   &--small {
     padding: $padding-small;
-  }
-  &--medium {
-    padding: $padding-medium;
+    font-size: 1.125rem;
   }
 
   &__label {

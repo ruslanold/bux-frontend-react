@@ -1,23 +1,26 @@
 @import "../../variables.scss";
 @import "../../color-theme.scss";
 
-.modal{
+.modal {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1;
   background-color: rgba(#000000, .15);
-
-  &__wrrap{
+  &__wrrap {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    @include themed(){
-      background-color: t($surface);
-      color: t($on-surface);
+    @include themed() {
+        background-color: t($surface);
+        color: t($on-surface);
     }
   }
 
+  &__wrrap{
+    min-width: 300px;
+  }
 }

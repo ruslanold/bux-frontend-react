@@ -6,12 +6,10 @@
     background-color: t($surface);
     color: t($on-surface);
   }
-  display: flex;
   min-height: $header-min-height;
 
   &__container {
-    padding: 0 $spacer;
-    width: 100%;
+    // padding: 0 $spacer;
     display: flex;
     align-items: center;
   }

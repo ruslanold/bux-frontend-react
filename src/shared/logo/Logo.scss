@@ -2,18 +2,22 @@
 
 .logo {
   text-align: center;
-  padding: $spacer;
-  min-width: 300px;
+  padding: 0 $spacer;
   min-height: $header-min-height;
+  min-width: $sidebar-width;
   background-color: $theme-sidebar-light;
-  position: fixed;
-  top: 0;
-  left: 0;
+  display: flex;
+  align-items: center;
+
   &__img {
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    left: 20px;
-    top: 6px;
+    width: 40px;
+    height: 40px;
+    margin-right: $spacer;
   }
+
+  &__link{
+    display: flex;
+    align-items: center;
+  }
+  
 }

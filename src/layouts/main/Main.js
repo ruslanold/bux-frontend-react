@@ -4,10 +4,12 @@ import { Route, Switch, Redirect, useLocation } from "react-router";
 import Footer from "../../shared/footer/Footer";
 import Header from "../../shared/header/Header";
 
-import HomePage from "../../screens/home/Home";
-import NotFound from "../../screens/notFound/NotFound"
-import Login from "../../screens/login/Login";
-import Register from "../../screens/register/Register";
+import { Home } from "../../screens/home/Home";
+import { NotFound } from "../../screens/notFound/NotFound"
+import { Login } from "../../screens/login/Login";
+import { Register } from "../../screens/register/Register";
+import { Forgot } from "../../screens/forgot/Forgot";
+import { ResetPassword } from "../../screens/resetPasword/ResetPassword";
 
 import "./Main.scss";
 
@@ -31,15 +33,18 @@ export const Main = ({isAuth}) => {
         {console.log(background, "background")}
         {console.log(location, "location")}
         <Switch location={background || location} >
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={Home} />
+          <Route path="/forgot" component={Forgot} />
           <Route path="/help" component={() => "help"} />
+          <Route path="/reset/password" component={ResetPassword} />
           <Route path="*" component={NotFound} />
         </Switch>
         {
           background &&
           <>
-            <Route path="/login" children={!isAuth ? <Login /> : <Redirect to="/" />} />
-            <Route path="/register" children={!isAuth ? <Register /> : <Redirect to="/" />} />
+            <Route path="/login" children={isAuth ? <Redirect to="/" /> : <Login />} />
+            <Route path="/register" children={isAuth ? <Redirect to="/" /> : <Register />} />
+            <Route path="/forgot" children={isAuth ? <Redirect to="/" /> : <Forgot />} />
           </>
         }
       </div>

@@ -4,7 +4,7 @@ import {
 } from "react-router-dom";
 
 
-const NotFound = () => {
+export const NotFound = () => {
 
   const location = useLocation();
 
@@ -14,5 +14,3 @@ const NotFound = () => {
     </div>
   )
 }
-
-export default NotFound;

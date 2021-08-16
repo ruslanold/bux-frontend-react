@@ -2,42 +2,11 @@
 @import "../../color-theme.scss";
 
 .login {
-  text-align: center;
+
   &__form {
     display: flex;
     flex-direction: column;
     padding: $spacer * 2 $spacer * 2 $spacer;
-  }
-
-  &__item-wrrap {
-    display: flex;
-    margin-bottom: $spacer;
-    align-items: stretch;
-    @include themed() {
-      border-bottom: 1px solid rgba(t($on-bg), 0.26);
-    }
-  }
-
-  &__icon {
-    @include themed() {
-      color: rgba(t($on-bg), 0.26);
-    }
-  }
-
-  &__item {
-    padding: .375rem .75rem;
-    border: 0;
-    background: transparent;
-    flex: 1 1 auto;
-    @include themed() {
-      color: t($on-bg);
-    }
-  }
-
-  &__item::placeholder{
-    @include themed() {
-      color: rgba(t($on-bg), 0.67);
-    }
   }
 
   &__link {
@@ -47,13 +16,14 @@
   }
 
   &__forgot{
+    text-align: center;
     margin-top: $spacer;
   }
 
   &__bottom {
+    padding: $spacer $spacer * 2;
     @include themed() {
       border-top: 1px solid rgba(t($on-bg), 0.12);
     }
-    padding: $spacer $spacer * 2;
   }
 }

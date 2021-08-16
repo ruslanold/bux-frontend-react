@@ -1,31 +1,42 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, Link } from "react-router-dom";
 
 import { IconButton } from "@material-ui/core";
 import { MoreVert } from "@material-ui/icons";
+import { NavTabs } from "../../shared/navTabs/NavTabs";
+
+import { getAllTasks } from "../../actions";
+
 
 import "./AllTasks.scss";
 
-const AllTasks = () => {
-  const [state, setState] = useState({
-    tasks: [],
-  });
+export const AllTasks = () => {
+
+  const tasks = useSelector((state) => state.tasks.tasks);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // (async () => {
-    //   const tasks = await new TaskService().getTasks();
-    //   console.log(tasks);
-    //   setState({ tasks: tasks });
-    // })();
+    dispatch(getAllTasks());
   }, []);
 
   return (
     <div>
-      All Tasks
+      <h1>All Tasks</h1>
+      <NavTabs>
+          <NavLink to="/account/tasks" >Все задания <span className="material-icons md-24">{ "notifications"}</span></NavLink>
+          <NavLink to="/account/favorites" >Избраные</NavLink>
+          <NavLink to="/account/started" >Начатые</NavLink>
+          <NavLink to="/account/pending" >На проверке</NavLink>
+          <NavLink to="/account/rework" >На доработке</NavLink>
+          <NavLink to="/account/resolved" >Оплаченые</NavLink>
+          <NavLink to="/account/rejected" >Отклоненые</NavLink>
+      </NavTabs>
+
       <div className="tasks">
         <ul className="tasks__list">
-          {state.tasks.map((task) => (
+          {tasks && tasks.map((task) => (
             <li className="tasks__item" key={task.id}>
               <div className="tasks__header">
                 <Link
@@ -56,7 +67,7 @@ const AllTasks = () => {
         </ul>
         <div className="tasks__nav">
           <ul className="tasks__nav-list">
-            {state.tasks.map((task) => (
+            {tasks && tasks.map((task) => (
               <li className="tasks__item" key={task.id}>
                 <div className="tasks__header">
                   <Link
@@ -90,5 +101,3 @@ const AllTasks = () => {
     </div>
   );
 };
-
-export default AllTasks;

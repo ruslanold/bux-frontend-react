@@ -15,13 +15,10 @@ const NavBar = () => {
           <span>Aккаунт</span>
           <ul className="nav__submenu">
             <li className="nav__submenu-item">
-              <Link to="/">Aккаунт</Link>
+              <Link to="/account">Сводка</Link>
             </li>
             <li className="nav__submenu-item">
-              <Link to="/">Aккаунт</Link>
-            </li>
-            <li className="nav__submenu-item">
-              <Link to="/">Aккаунт</Link>
+              <Link to="/settings">Настройки</Link>
             </li>
           </ul>
         </li>
@@ -32,10 +29,7 @@ const NavBar = () => {
               <Link to="/account/tasks">Задания</Link>
             </li>
             <li className="nav__submenu-item">
-              <Link to="/account/tasks">Задания</Link>
-            </li>
-            <li className="nav__submenu-item">
-              <Link to="/account/tasks">Задания</Link>
+              <Link to="/account/visits">Посещения</Link>
             </li>
           </ul>
         </li>
@@ -43,13 +37,13 @@ const NavBar = () => {
           <span>Рекламировать</span>
           <ul className="nav__submenu">
             <li className="nav__submenu-item">
-              <Link to="/">Рекламировать</Link>
+              <Link to="/account/adv/tasks">Задания</Link>
             </li>
             <li className="nav__submenu-item">
-              <Link to="/">Рекламировать</Link>
+              <Link to="/account/adv/visits">Посещения</Link>
             </li>
             <li className="nav__submenu-item">
-              <Link to="/">Рекламировать</Link>
+              <Link to="/account/adv/banners">Баннеры</Link>
             </li>
           </ul>
         </li>

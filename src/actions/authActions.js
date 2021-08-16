@@ -12,6 +12,8 @@ import {
 import { authService } from "../services";
 import { addAuthorizationHeader } from "../services/axiosConfig"
 
+import * as alert from "./alertActions";
+
 
 export const initialUser = () => async dispatch => {
 
@@ -26,8 +28,6 @@ export const initialUser = () => async dispatch => {
       let { data: user } = await authService.account();
 
       dispatch({ type: LOGIN_SUCCESS, payload: user });
-
-      console.log("after dispatch");
 
     } catch (e) {
       localStorage.removeItem("token");
@@ -44,19 +44,28 @@ export const register = (user) => async dispatch => {
     console.log(data);
     dispatch({ type: REGISTER_SUCCESS, payload: data });
   } catch (e) {
-    dispatch({ type: REGISTER_ERROR, payload: e });
+    dispatch(alert.error(e.message));
+    //dispatch({ type: REGISTER_ERROR, payload: e });
   }
 };
 
-export const login = async (username, password) => {
+export const login = (username, password) => async dispatch => {
   try {
-    const { data: { token, user } } = await authService.login(username, password);
-    localStorage.setItem('token', JSON.stringify(token));
-    addAuthorizationHeader()
-    return { type: LOGIN_SUCCESS, payload: user };
     
+    const res = await authService.login(username, password);
+    
+    const { data, data: { token, user } } = res
+
+    console.log(res, data);
+
+    localStorage.setItem('token', JSON.stringify(token));
+    
+    addAuthorizationHeader()
+    
+    dispatch({ type: LOGIN_SUCCESS, payload: user });
   } catch (e) {
-    return{ type: LOGIN_ERROR, payload: e };
+    dispatch(alert.error(e.message));
+    //dispatch({ type: LOGIN_ERROR, payload: { message: e.message} });
   }
 };
 
@@ -69,3 +78,23 @@ export const logout = () => async dispatch => {
     console.log(e);
   }
 };
+
+export const forgotPassword = (email) => async dispatch => {
+  try {
+    const data = await authService.forgotPassword(email);
+    console.log(data);
+    dispatch(alert.success("We sent instructions to email"));
+  } catch (e) {
+    dispatch(alert.error(e.message));
+  }
+}
+
+export const checkIsValidPasswordResetToken = async code => {
+  try {
+    const data = await authService.checkIsValidPasswordResetToken(code);
+    console.log(data, "checkIsValidPasswordResetToken");
+
+  } catch (e) {
+    console.log(e);
+  }
+}

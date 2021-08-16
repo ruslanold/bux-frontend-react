@@ -11,6 +11,7 @@ const IconButton = ({
   children,
   color,
   variant,
+  size,
   onClick,
   className,
   disabled,
@@ -21,6 +22,7 @@ const IconButton = ({
 
   const classes = classNames(
     "icon-button",
+    size && "icon-button--small",
     className
   );
 
@@ -44,6 +46,7 @@ IconButton.propTypes = {
   children: PropTypes.node,
   color: PropTypes.string,
   variant: PropTypes.string,
+  size: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
   disabled: PropTypes.bool,

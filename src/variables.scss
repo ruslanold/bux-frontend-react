@@ -6,7 +6,6 @@ $theme-secondary-light: #62eecd; //#4cac9b;
 $theme-secondary: #1abb9c; //#0a7c6d;
 $theme-secondary-dark: #008a6e; //#004f42;
 
-
 $theme-sidebar-light: #556a81;//#5a5d80;
 $theme-sidebar: #2a3f54;//#434763; //#2f3453
 $theme-sidebar-dark: #00192b;//#070d2a;
@@ -49,3 +48,10 @@ $theme-on-success: #fff;
 
 $spacer: 14px;
 $header-min-height: 60px;
+$sidebar-width: 245px;
+
+$screen-xsm-min: 410px;  /* Extra small screen / phone */
+$screen-sm-min: 576px;  /* Small screen / phone */
+$screen-md-min: 768px;  /* Medium screen / tablet */
+$screen-lg-min: 991px;  /* Large screen / desktop */
+$screen-xlg-min: 1200px; /* Extra large screen / wide desktop */

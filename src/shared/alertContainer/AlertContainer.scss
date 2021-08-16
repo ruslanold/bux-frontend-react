@@ -1,0 +1,44 @@
+@import "../../variables.scss";
+
+
+.alert {
+  position: fixed;
+  top: 100px;
+  right: $spacer;
+  padding-left: $spacer;
+  z-index: 1060;
+  font-size: 14px;
+  min-width: 64px;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  
+  &__item {
+    padding: $spacer;
+    margin-bottom: $spacer;
+    border-radius: 4px;
+  }
+
+  &__msg{
+    margin-right: $spacer;
+    color: $theme-on-error;
+  }
+
+  &__item--error {
+    background-color: $theme-error;
+  }
+
+  &__item--warning {
+    background-color: $theme-warning;
+  }
+
+  &__item--info {
+    background-color: $theme-info;
+  }
+
+  &__item--success {
+    background-color: $theme-success;
+  }
+
+} 
+

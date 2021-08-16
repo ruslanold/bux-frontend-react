@@ -1,72 +1,80 @@
-import { React, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory, useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { React, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
 
-import Button from "../../shared/button/Button";
-import ModalLogin from "../../shared/modalLogin/ModalLogin";
+import { useInput } from "../../hooks"
 
 import { login } from "../../actions";
 
+import { Button } from "../../shared/button/Button";
+import ModalLogin from "../../shared/modalLogin/ModalLogin";
+import { Input } from "../../shared/input/Input";
+
+
 import "./Login.scss";
 
-const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+export const Login = () => {
+  const username = useInput("", {isEmpty: true, minLength: 4, maxLength: 15});
+  const password = useInput("", {isEmpty: true, minLength: 8, maxLength: 20});
 
+  const [formValid, setFormValid] = useState(false);
+
+
+  const isAuth = useSelector( state => state.auth.isAuth)
   const dispatch = useDispatch();
-  const history = useHistory();
-  const location = useLocation();
 
-  const handleForm = async (e) => {
+
+  const handleForm = (e) => {
     e.preventDefault();
+    e.stopPropagation();
 
-    if (username && password) {
-      const data = await login(username, password);
-      dispatch(data);
-      history.push("/account");
+    if (username.isValid && password.isValid) {      
+      dispatch(login(username.value, password.value))
     }
+
   };
 
-  // const goAccount = () => {
-  //   console.log("goAccount");
-  //   history.push("/account")
-  // }
+  useEffect(() => {
+    const isValid = username.isValid && password.isValid
+    isValid && setFormValid(isValid)
+  }, [username.isValid && password.isValid])
+
+
+  if (isAuth) {
+    return <Redirect to={'/account'}/>
+  }
 
   return (
     <ModalLogin>
+      {console.log("render Login component")}
       <div className="login">
         <form className="login__form" onSubmit={handleForm}>
-          <div className="login__item-wrrap">
-            <span className="login__icon material-icons md-18">person</span>
-            <input
-              className="login__item"
-              type="text"
-              name="username"
-              placeholder="Имя пользователя"
-              value={username}
-              onInput={(e) => setUsername(e.target.value)}
-              required
-            />
-          </div>
-          <div className="login__item-wrrap">
-            <span className="login__icon material-icons md-18">lock</span>
-            <input
-              className="login__item"
-              type="password"
-              name="password"
-              placeholder="Пароль"
-              value={password}
-              onInput={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
+          <Input 
+            type="text" 
+            name="username"
+            placeholder="Имя пользователя"
+            value={username.value}
+            onChange={username.onChange}
+            icon="person"
+            errorMsg={username.errors[0]}
+            required
+          /> 
+          <Input 
+            type="password" 
+            name="password"
+            placeholder="Пароль"
+            value={password.value}
+            onChange={password.onChange}
+            icon="lock"
+            errorMsg={password.errors[0]}
+            required
+          /> 
           <Button
             className="login__submit"
             type="submit"
             variant="contained"
             color="secondary"
+            disabled={!formValid}
           >
             Войти
           </Button>
@@ -85,5 +93,3 @@ const Login = () => {
     </ModalLogin>
   );
 };
-
-export default Login;

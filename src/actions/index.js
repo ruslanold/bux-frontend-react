@@ -1,3 +1,5 @@
 export * from "./authActions"
 export * from "./userActions"
 export * from "./themeActions"
+export * from "./tasksActions"
+export * from "./alertActions"

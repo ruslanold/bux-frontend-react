@@ -93,7 +93,6 @@ $box-shadow-hover: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 
       border-color: t($on-bg);
       color: t($on-bg);
       background-color: rgba(t($bg), 0.12);
-      // }
     }
 
     &-outlined:disabled {
@@ -127,7 +126,6 @@ $box-shadow-hover: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 
       position: absolute;
       border-radius: inherit;
       z-index: 1;
-      //pointer-events: none;
     }
     &__pulse {
       position: absolute;
@@ -191,156 +189,3 @@ $box-shadow-hover: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 
     }
   
 }
-// &:hover {
-//   background-color: rgba($theme-background, 0.5);
-// }
-
-// &:disabled {
-//   cursor: default;
-//   pointer-events: none;
-//   color: rgba($theme-on-background, 0.26);
-// }
-
-// &--primary {
-//   color: $theme-primary-dark;
-// }
-
-// &--primary:hover {
-//   background-color: rgba($theme-primary-light, 0.12);
-// }
-// &--secondary {
-//   color: $theme-secondary-dark;
-// }
-// &--secondary:hover {
-//   background-color: rgba($theme-secondary-light, 0.12);
-// }
-
-// &-contained {
-//   background-color: $theme-background;
-//   color: $theme-on-background;
-// }
-// &-contained:hover {
-//   background-color: rgba($theme-background-dark, 0.5);
-// }
-// &-contained:disabled {
-//   color: rgba($theme-on-background, 0.26);
-//   box-shadow: none;
-//   background-color: rgba($theme-on-background, 0.12);
-// }
-// &-contained--primary {
-//   background-color: $theme-primary;
-//   color: $theme-on-primary;
-// }
-// &-contained--primary:hover {
-//   background-color: $theme-primary-dark;
-// }
-// &-contained--secondary {
-//   background-color: $theme-secondary;
-//   color: $theme-on-secondary;
-// }
-// &-contained--secondary:hover {
-//   background-color: $theme-secondary-dark;
-// }
-
-// &-outlined {
-//   border: 1px solid rgba($theme-background-dark, 0.5);
-//   color: $theme-on-background;
-// }
-
-// &-outlined:hover {
-//   border-color: $theme-background-dark;
-//   background-color: $theme-background;
-// }
-
-// &-outlined:disabled {
-//   color: rgba($theme-on-background, 0.26);
-//   border-color: rgba($theme-on-background, 0.12);
-// }
-
-// &-outlined--primary {
-//   border: 1px solid $theme-primary-light;
-//   color: $theme-primary-dark;
-// }
-// &-outlined--primary:hover {
-//   border-color: $theme-primary-dark;
-//   background-color: rgba($theme-primary-light, 0.12);
-// }
-// &-outlined--secondary {
-//   border: 1px solid $theme-secondary-light;
-//   color: $theme-secondary-dark;
-// }
-// &-outlined--secondary:hover {
-//   border-color: $theme-secondary-dark;
-//   background-color: rgba($theme-secondary-light, 0.12);
-// }
-
-// &__root {
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   overflow: hidden;
-//   position: absolute;
-//   border-radius: inherit;
-//   z-index: 0;
-//   //pointer-events: none;
-// }
-// &__pulse {
-//   position: absolute;
-//   transform: scale(0);
-//   animation: pulse 0.5s ease-out;
-//   animation-fill-mode: both;
-//   transition: opacity 0.5s;
-//   border-radius: 50%;
-//   background-color: $theme-background-dark;
-// }
-
-// &__pulse--primary {
-//   background-color: rgba($theme-primary-light, 0.32);
-// }
-
-// &__pulse--secondary {
-//   background-color: rgba($theme-secondary-light, 0.32);
-// }
-
-// &__pulse-contained {
-//   background-color: $theme-background-dark;
-// }
-
-// &__pulse-contained--primary {
-//   background-color: $theme-primary-light;
-// }
-
-// &__pulse-contained--secondary {
-//   background-color: $theme-secondary-light;
-// }
-
-// &__pulse-outlined {
-//   background-color: $theme-background-dark;
-// }
-
-// &__pulse-outlined--primary {
-//   background-color: rgba($theme-primary-light, 0.32);
-// }
-
-// &__pulse-outlined--secondary {
-//   background-color: rgba($theme-secondary-light, 0.32);
-// }
-
-// @keyframes pulse {
-//   0% {
-//     transform: scale(0);
-//   }
-//   25% {
-//     transform: scale(0.6);
-//   }
-//   50% {
-//     transform: scale(1.2);
-//   }
-//   75% {
-//     transform: scale(1.8);
-//   }
-//   100% {
-//     transform: scale(2.4);
-//   }
-// }

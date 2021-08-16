@@ -14,7 +14,7 @@ const PrivateRoute = ({ isLoading, isAuth, component: Component, ...rest }) => {
           if (isLoading) {
             return "loading";
           }
-
+          
           if (isAuth) {
             return <Component />;
           }

@@ -6,7 +6,7 @@ import BaseButton from "../baseButton/BaseButton";
 
 import "./Button.scss";
 
-const Button = ({
+export const Button = ({
   children,
   color,
   variant,
@@ -49,5 +49,3 @@ Button.propTypes = {
   pulse: PropTypes.bool,
   staticPulse: PropTypes.bool,
 };
-
-export default Button;

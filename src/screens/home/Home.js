@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const Home = () => {
+export const Home = () => {
 
   const [state, setState] = useState({
     users: []
@@ -14,7 +14,6 @@ const Home = () => {
   return (
     <div>
       Home
-    {console.log(state.users, "users")}
       {state.users.map((user) => (
         <div>
           {user.name}
@@ -24,4 +23,3 @@ const Home = () => {
     </div>
   )
 }
-export default Home;
